@@ -61,8 +61,16 @@
     border: 5px solid black;
     background: aqua;
 }
+.leave-button{
+    position: absolute;
+    right: 0%;
+    width: 30%;
+    height:100%;
+    border: 5px solid black;
+    background: lightcoral;
+}
 
-.search-button > .search-button-text{
+.search-button-text{
     position: absolute;
     text-align: center;
     left: 4vmax;

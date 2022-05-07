@@ -28,15 +28,27 @@ io.on('connection', socket=>{
                 socket.join(rooms[i].roomId)
                 rooms[i].member.push(socket.id)
                 socket.emit("roomId", rooms[i].roomId)
+                console.log(rooms[i].roomId)
                 break
             }
         }
     })
 
     // 방에서 나올 경우
-    socket.on("reaveRoom", () => {
-        //그 방에 있는 인원 모두 내보냄
+    socket.on("leaveRoom", (roomId) => {
+        //그 방에 있는 인원 스스로 나감
+        socket.leave(roomId)
+    })
 
+    socket.on("leaveAll", (roomId) => {
+        //그 방에 있는 인원 모두 내보내는 시그널을 보냄
+        io.to(roomId).emit('message', {name:"notion", message:"연결이 끊겼습니다."})
+        io.to(roomId).emit("signal", "leaveRoom")
+        for(let i = 0; i < rooms.length; i++){
+            if(rooms[i].roomId == roomId){
+                rooms[i].member = []
+            }
+        }
     })
 
     // 메세지 받음

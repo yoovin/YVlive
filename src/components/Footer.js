@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 const Footer = (props) => {
     const [contents, setContents] = useState({
         message:"",
-        name:props.name
+        name:props.name,
+        roomId:props.roomId
     });
 
     const socket = props.socket
@@ -15,22 +16,22 @@ const Footer = (props) => {
             className="input-chat" 
             value={contents.message} 
             onChange={(e) => {
-                setContents({message:e.target.value, name:props.name})
+                setContents({message:e.target.value, name:props.name, roomId: props.roomId})
             }}
             onKeyPress={e => {
                 if(e.key === "Enter"){
-                    const {name, message} = contents
-                    socket.emit("message", {name, message})
-                    setContents({message:"", name})
+                    const {name, message, roomId} = contents
+                    socket.emit("message", {name, message, roomId})
+                    setContents({message:"", name, roomId})
                 }
             }}
             />
             <div 
             className="send-button"
             onClick={() => {
-                const {name, message} = contents
-                socket.emit("message", {name, message})
-                setContents({message:"", name})
+                const {name, message, roomId} = contents
+                socket.emit("message", {name, message, roomId})
+                setContents({message:"", name, roomId})
             }
             }></div>
         </div>

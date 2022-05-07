@@ -10,14 +10,16 @@ const Chat = (props) => {
         socket.on('message', ({name, message}) => {
             setChat([...chat,{name,message}])
         })
-    })
+    },[chat])
 
 
     return (
         <div className="chat-view">
             {chat.map(({name, message}) => (
                 <div className="chat-line">
-                {name == props.name ? "나" : "상대방"}:{message}
+                {name == props.name ? "나" 
+                : name == "notion" ? "알림"
+                : "상대방"}: {message}
                 <hr/>
                 </div>
             ))}
