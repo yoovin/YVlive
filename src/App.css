@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+*{
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+    width: 100%;
+    height: 100%;
+    /* border: 5px solid black; */
+    /* border-radius: 50px; */
+    position: absolute;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header{
+    width: 100%;
+    height: 10%;
+    background: gray;
+    position: absolute;
+    bottom: 0;
+    padding: 0;
+    top: 0%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.footer{
+    width: 100%;
+    height: 10%;
+    background: gray;
+    position: absolute;
+    bottom: 0;
+    padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.input-chat{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    font-size: 5vh;
+    padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.send-button{
+    background: green;
+    width: 20%;
+    height: 100%;
+    right: 0%;
+    position: absolute;
+    border: 5px solid black;
+}
+
+.logo{
+    width: 30%;
+    height:100%;
+    position: absolute;
+    font-size: 10vh;
+}
+
+.search-button{
+    position: absolute;
+    right: 0%;
+    width: 30%;
+    height:100%;
+    border: 5px solid black;
+    background: aqua;
+}
+
+.search-button > .search-button-text{
+    position: absolute;
+    text-align: center;
+    left: 4vmax;
+    top: 1vh;
+    font-size: 5vmin;
+}
+
+.chat-view{
+    position: absolute;
+    top:10%;
+    width: 100%;
+    height: 80%;
+    background: pink;
+    overflow: scroll;
+}
+
+.chat-view > .chat-line{
+    font-size: 3vh;
 }

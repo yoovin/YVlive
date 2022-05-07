@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Chat from './components/Chat';
+import io from 'socket.io-client'
+
+const socket = io.connect('http://61.255.79.207:3001/')
 
 function App() {
+  const name = new Date().getTime().toString(36)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Chat name={name} socket={socket}/>
+      <Footer name={name} socket={socket}/>
     </div>
   );
 }
