@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header socket={socket}/>
       <Chat name={name} socket={socket}/>
       <Footer name={name} socket={socket}/>
     </div>
